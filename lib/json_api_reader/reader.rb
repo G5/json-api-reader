@@ -6,8 +6,13 @@ module JsonApiReader
       end
 
       def first_page(options={}, &block)
-        result = JsonApiReader::Fetcher.fetch_all(options[:endpoint], options)
+        raise ArgumentError.new("'endpoint' option is required") if options[:endpoint].nil?
+        result = fetch(options[:endpoint], options)
         block.call result
+      end
+
+      def fetch(url, options)
+        JsonApiReader::Fetcher.fetch_all(url, options)
       end
     end
   end

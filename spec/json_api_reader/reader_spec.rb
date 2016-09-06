@@ -22,7 +22,7 @@ describe JsonApiReader::Reader do
     let(:endpoint) { nil }
     context 'without endpoint' do
       it 'raises informative error' do
-        expect { described_class.first_page(params) }.to raise_error("'endpoint' parameter is required")
+        expect { described_class.first_page(params) }.to raise_error("'endpoint' option is required")
       end
     end
 
@@ -51,7 +51,8 @@ describe JsonApiReader::Reader do
       end
 
       it 'yielded the result' do
-        expect(test_yield.yielded).to eq({})
+        expect(test_yield.yielded.count).to eq(1)
+        expect(test_yield.yielded.first.attributes.count).to eq(3)
       end
     end
   end
