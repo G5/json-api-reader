@@ -6,7 +6,8 @@ module JsonApiReader
       end
 
       def first_page(options={}, &block)
-
+        result = JsonApiReader::Fetcher.fetch_all(options[:endpoint], options)
+        block.call result
       end
     end
   end

@@ -1,0 +1,72 @@
+{
+  "data": [
+    {
+      "type": "event-trackings",
+      "id": "820",
+      "attributes": {
+        "id": 820,
+        "external-message-id": "f-eMltmTSPuQ7t0R8hQW5A.filter0814p1mdw1.21806.570BF9551E.0",
+        "opened-at": "2016-04-28T21:14:27.000Z",
+        "processed-at": null,
+        "delivered-at": null,
+        "email": "free2contactme933@gmail.com",
+        "client-urn": "g5-c-i7yxybw5-mission-rock-single",
+        "location-urn": "g5-cl-i7z648ig-mission-rock-residential",
+        "lead-uid": "https://g5-cls-i7yxybw5-mission-rock-s.herokuapp.com/locations/g5-cl-i7z648ig-mission-rock-residential/leads/10064",
+        "created-at": "2016-09-06T17:59:53.572Z"
+      },
+      "links": {
+        "self": "/event-trackings/820"
+      }
+    },
+    {
+      "type": "event-trackings",
+      "id": "819",
+      "attributes": {
+        "id": 819,
+        "external-message-id": "YYUPzid7TZKKLig90iNspg.filter0432p1mdw1.32195.570BF6F54C.0",
+        "opened-at": "2016-04-28T21:14:28.000Z",
+        "processed-at": null,
+        "delivered-at": null,
+        "email": "free2contactme933@gmail.com",
+        "client-urn": "g5-c-i7yxybw5-mission-rock-single",
+        "location-urn": "g5-cl-i7z648ig-mission-rock-residential",
+        "lead-uid": "https://g5-cls-i7yxybw5-mission-rock-s.herokuapp.com/locations/g5-cl-i7z648ig-mission-rock-residential/leads/10062",
+        "created-at": "2016-09-06T17:59:48.947Z"
+      },
+      "links": {
+        "self": "/event-trackings/819"
+      }
+    },
+    {
+      "type": "event-trackings",
+      "id": "659",
+      "attributes": {
+        "id": 659,
+        "external-message-id": "bDkl5moBRb2BAASF_ujHjA.filter0523p1mdw1.15474.572278671E.0",
+        "opened-at": "2016-04-28T21:11:55.000Z",
+        "processed-at": "2016-04-28T20:53:59.000Z",
+        "delivered-at": "2016-04-28T20:54:02.000Z",
+        "email": "lindateslottawa@gmail.com",
+        "client-urn": "g5-c-iekffchc-symphony-senior-living-client",
+        "location-urn": "g5-cl-541oi1drg-symphony-at-the-redwoods",
+        "lead-uid": "https://g5-cls-iekffchc-symphony-senio.herokuapp.com/locations/g5-cl-541oi1drg-symphony-at-the-redwoods/leads/97",
+        "created-at": "2016-09-02T23:20:01.575Z"
+      },
+      "links": {
+        "self": "/event-trackings/659"
+      }
+    }
+  ],
+  "meta": {
+    "current-page": 1,
+    "next-page": 2,
+    "prev-page": null,
+    "total-pages": 8,
+    "total-count": 365
+  },
+  "links": {
+    "self": "https://my-endpoint.com/api/v1/some-json-api-feed",
+    "next": "https://my-endpoint.com/api/v1/some-json-api-feed?page=2"
+  }
+}

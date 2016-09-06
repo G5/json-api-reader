@@ -2,6 +2,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'json_api_reader'
 require 'webmock/rspec'
 require 'rspec/its'
+require 'pry'
 
 Dir[File.join('spec/support/**/*.rb')].each { |f| require "./#{f}" }
 
