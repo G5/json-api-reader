@@ -1,8 +1,6 @@
-# Json::Api::Reader
+# JsonApiReader
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/json/api/reader`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A simple json-api client.
 
 ## Installation
 
@@ -21,8 +19,26 @@ Or install it yourself as:
     $ gem install json-api-reader
 
 ## Usage
+Get all pages from a json-api endpoint. 
+```ruby
+JsonApiReader::Reader.all_pages(endpoint: 'https://my-endpoint.com/api/v1/foos', 
+                                headers: {'Authorization' => 'Bearer mytoken'}) do |page_result|
+  # page_result is instance of JsonApiReader::PageResult                                
+  page_result.attributes.each do |attributes|
+    MyModel.create(attributes)
+  end
+end
+```
 
-TODO: Write usage instructions here
+Or get just one page
+```ruby
+page_result = JsonApiReader::Reader.first_page(endpoint: 'https://my-endpoint.com/api/v1/foos')
+```
+
+Query parameters can be added with **query** parameter
+```ruby
+page_result = JsonApiReader::Reader.first_page(endpoint: 'https://my-endpoint.com/api/v1/foos', query: {page: 1, per_page: 100})
+```
 
 ## Development
 

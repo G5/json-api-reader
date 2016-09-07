@@ -55,41 +55,6 @@ describe JsonApiReader::Reader do
         expect(test_yield.yielded.first.attributes.count).to eq(3)
       end
     end
-
-    # typical G5 usage
-    # class MyClass
-    #   extends G5AuthenticationClient::AuthTokenHelper
-    # end
-    #
-    # JsonApiReader::Reader.first_page({endpoint: my_endpoint, token_retriever_class: MyClass, token_retriever_method: do_with_username_pw_access_token})
-    #
-    context 'with token_retriever_class' do
-      class Foo
-        def self.bar
-          yield 'mytoken'
-        end
-      end
-
-      let(:params) do
-        {token_retriever_class:  Foo,
-         token_retriever_method: :bar,
-         endpoint:               endpoint
-        }
-      end
-      before do
-        stub_request(:get, endpoint).
-            with(headers: {'Accept' => 'application/json', 'Authorization' => 'Bearer mytoken', 'Content-Type' => 'application/json'}).
-            to_return(status: 200, body: first_page_response, headers: {})
-        described_class.first_page(params) do |result|
-          test_yield.on_yield(result)
-        end
-      end
-
-      it 'yielded the result' do
-        expect(test_yield.yielded.count).to eq(1)
-        expect(test_yield.yielded.first.attributes.count).to eq(3)
-      end
-    end
   end
 
   describe '#all_pages' do

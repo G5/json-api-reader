@@ -12,36 +12,17 @@ module JsonApiReader
     end
 
     def fetch_all
-      response = get
+      response = HTTParty.get(@url, query: query, headers: headers)
+
       raise JsonApiReader::RecordNotFoundError.new("404 - URL: '#{@url}'") if 404 == response.code
+      raise JsonApiReader::Error.new("#{response.code} returned from URL: '#{@url}'") if response.code >= 400
       JsonApiReader::PageResult.new JSON.parse(response.body)
     end
 
-    def get
-      if token_retriever?
-        @options[:token_retriever_class].send(@options[:token_retriever_method]) do |token|
-          execute_get(query:   query,
-                      headers: headers(token))
-        end
-      else
-        execute_get(query:   query,
-                    headers: headers)
-      end
-    end
-
-    def execute_get(params)
-      HTTParty.get(@url, params)
-    end
-
-    def headers(token=nil)
-      the_headers                  = {'Content-Type' => 'application/json',
-                                      'Accept'       => 'application/json'}
-      the_headers['Authorization'] = "Bearer #{token}" unless token.nil?
-      the_headers
-    end
-
-    def token_retriever?
-      @options[:token_retriever_class] && @options[:token_retriever_method]
+    def headers
+      {'Content-Type' => 'application/json',
+       'Accept'       => 'application/json'}.
+          merge(@options[:headers] || {})
     end
 
     def query
