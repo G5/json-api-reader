@@ -13,14 +13,15 @@ describe JsonApiReader::Reader do
     end
   end
 
+  let(:endpoint) { 'https://my-endpoint.com/api/v1/some-json-api-feed' }
   let(:test_yield) { TestYield.new }
 
   let(:first_page_response) { fixture('opened-events.json') }
   let(:params) { {endpoint: endpoint} }
 
   describe '#first_page' do
-    let(:endpoint) { nil }
     context 'without endpoint' do
+      let(:endpoint) { nil }
       it 'raises informative error' do
         expect { described_class.first_page(params) }.to raise_error("'endpoint' option is required")
       end
@@ -39,8 +40,6 @@ describe JsonApiReader::Reader do
     end
 
     context 'success' do
-      let(:endpoint) { 'https://my-endpoint.com/api/v1/some-json-api-feed' }
-
       before do
         stub_request(:get, endpoint).
             with(headers: {'Accept' => 'application/json', 'Content-Type' => 'application/json'}).

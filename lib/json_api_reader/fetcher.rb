@@ -8,22 +8,12 @@ module JsonApiReader
       end
 
       def get(url, options={})
-        query = options[:query]
-
-        if options[:token_retriever_proc]
-          options[:token_retriever_proc].call do |token|
-            HTTParty.get(url,
-                         query:   query,
-                         headers: {'Content-Type'  => 'application/json',
-                                   'Accept'        => 'application/json',
-                                   'Authorization' => "Bearer #{token}"})
-          end
-        else
-          HTTParty.get(url,
-                       query:   query,
-                       headers: {'Content-Type' => 'application/json',
-                                 'Accept'       => 'application/json'})
-        end
+        headers = {'Content-Type' => 'application/json',
+                   'Accept'       => 'application/json'}.merge(options.fetch(:headers, {}))
+        
+        HTTParty.get(url,
+                     query:   options[:query],
+                     headers: headers)
       end
     end
   end
