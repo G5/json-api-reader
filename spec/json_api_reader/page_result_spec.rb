@@ -6,6 +6,11 @@ describe JsonApiReader::PageResult do
 
   its('attributes.count') { is_expected.to eq(3) }
   its(:next_url) { is_expected.to eq('https://my-endpoint.com/api/v1/some-json-api-feed?page=2') }
+  its(:data) { is_expected.to eq(body['data']) }
+  its(:meta) { is_expected.to eq(body['meta']) }
+  its(:links) { is_expected.to eq(body['links']) }
+  its(:self_url) { is_expected.to eq(body['links']['self']) }
+  its(:next_url) { is_expected.to eq(body['links']['next']) }
 
   it 'filters attributes by type' do
     by_type = subject.attributes_by_type('event-trackings'.to_sym)

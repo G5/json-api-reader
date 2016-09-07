@@ -5,7 +5,7 @@ module JsonApiReader
     end
 
     def attributes
-      @attributes ||= @result_hash.fetch('data', []).collect { |data_att| data_att['attributes'] }
+      @attributes ||= data.collect { |data_att| data_att['attributes'] }
     end
 
     def attributes_by_type(the_type)
@@ -22,12 +22,10 @@ module JsonApiReader
       links['self']
     end
 
-    def meta
-      @result_hash.fetch('meta', {})
-    end
-
-    def links
-      @result_hash.fetch('links', {})
+    [:data, :meta, :links].each do |method|
+      define_method(method) do
+        @result_hash[method.to_s]
+      end
     end
   end
 end
