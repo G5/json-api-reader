@@ -4,4 +4,8 @@ module JsonApiReader
 
   class RecordNotFoundError < Error
   end
+
+  class NotAuthorizedError < Error
+
+  end
 end

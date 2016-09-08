@@ -12,23 +12,32 @@ describe JsonApiReader::Fetcher do
                                      'Authorization' => 'Bearer token'}) }
 
   describe '#fetch_all' do
-    context '404' do
+    context 'errors' do
       before do
-        expect(HTTParty).to receive(:get).and_return(double(:response, code: 404))
+        expect(HTTParty).to receive(:get).and_return(double(:response, code: code))
+      end
+      context '404' do
+        let(:code) { 404 }
+
+        it 'raises record-not-found' do
+          expect { described_class.fetch_all(url, options) }.to raise_error(JsonApiReader::RecordNotFoundError)
+        end
       end
 
-      it 'raises record-not-found' do
-        expect { described_class.fetch_all(url, options) }.to raise_error(JsonApiReader::RecordNotFoundError)
-      end
-    end
+      context '401' do
+        let(:code) { 401 }
 
-    context '500' do
-      before do
-        expect(HTTParty).to receive(:get).and_return(double(:response, code: 500))
+        it 'raises not-authorized' do
+          expect { described_class.fetch_all(url, options) }.to raise_error(JsonApiReader::NotAuthorizedError)
+        end
       end
 
-      it 'raises error' do
-        expect { described_class.fetch_all(url, options) }.to raise_error(JsonApiReader::Error)
+      context '500' do
+        let(:code) { 500 }
+
+        it 'raises error' do
+          expect { described_class.fetch_all(url, options) }.to raise_error(JsonApiReader::Error)
+        end
       end
     end
 

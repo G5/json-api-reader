@@ -15,6 +15,7 @@ module JsonApiReader
       response = HTTParty.get(@url, query: query, headers: headers)
 
       raise JsonApiReader::RecordNotFoundError.new("404 - URL: '#{@url}'") if 404 == response.code
+      raise JsonApiReader::NotAuthorizedError.new("401 - URL: '#{@url}'") if 401 == response.code
       raise JsonApiReader::Error.new("#{response.code} returned from URL: '#{@url}'") if response.code >= 400
       JsonApiReader::PageResult.new JSON.parse(response.body)
     end
