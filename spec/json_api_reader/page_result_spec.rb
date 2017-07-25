@@ -30,4 +30,18 @@ describe JsonApiReader::PageResult do
       expect(found['id']).to eq('649936')
     end
   end
+
+  describe '#convert_dash_keys_to_underscore!' do
+    let(:body) { JSON.parse(fixture('cls-api-v2-leads.json')) }
+    before { subject.convert_dash_keys_to_underscore! }
+
+    it 'converts location-urn to location_urn' do
+      expect(subject.attributes.first['location_urn']).to eq('g5-cl-53gncjftn-storquest-san-rafael-golden-gate-1015')
+    end
+
+    it 'converts included attributes too' do
+      found = subject.included_by_type_and_id('voicestar-call-payloads', 649934)['attributes']
+      expect(found['made_up']).to eq('foo')
+    end
+  end
 end

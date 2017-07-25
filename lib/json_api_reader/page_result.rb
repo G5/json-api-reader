@@ -1,7 +1,15 @@
 module JsonApiReader
   class PageResult
+    include HashKeysHelper
+    attr_reader :result_hash
+
     def initialize(result_hash)
       @result_hash = result_hash
+    end
+
+    def convert_dash_keys_to_underscore!
+      @attributes = nil
+      @result_hash = recursive_convert_dash_keys_to_underscore @result_hash
     end
 
     def attributes

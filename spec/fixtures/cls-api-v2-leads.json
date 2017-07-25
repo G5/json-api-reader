@@ -176,6 +176,7 @@
         "type": "CLSCallPayload",
         "system": "Voicestar",
         "category": "answer",
+        "made-up": "foo",
         "normalized": {
           "customer": {
             "name": "5552337715",
