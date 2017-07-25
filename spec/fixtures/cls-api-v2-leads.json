@@ -1,0 +1,197 @@
+{
+  "data": [
+    {
+      "type": "leads",
+      "id": "694262",
+      "attributes": {
+        "id": 694262,
+        "uuid": "05b7eb9b-a58d-4f70-ae57-76f041f82639",
+        "uid": "http://example.org/api/v2/leads/05b7eb9b-a58d-4f70-ae57-76f041f82639",
+        "location-urn": "g5-cl-53gncjftn-storquest-san-rafael-golden-gate-1015",
+        "submitted-at": "2017-07-13T08:16:17.000-07:00",
+        "updated-at": "2017-07-13T08:20:16.676-07:00",
+        "identity": {
+          "name": "Cell Phone CA",
+          "phone": "5558461009",
+          "ga_client_id": null,
+          "client_urn": "g5-c-1t5t8rc1-storquest-self-storage",
+          "location_uid": "http://hub.g5dxm.com/clients/g5-c-1t5t8rc1-storquest-self-storage/locations/g5-cl-53gncjftn-storquest-san-rafael-golden-gate-1015"
+        },
+        "marketing-source-urn": "ms-af123199e4cf5d9c"
+      },
+      "links": {
+        "self": "/api/v2/leads/05b7eb9b-a58d-4f70-ae57-76f041f82639"
+      },
+      "relationships": {
+        "payload": {
+          "links": {
+            "self": "/api/v2/leads/05b7eb9b-a58d-4f70-ae57-76f041f82639/relationships/payload",
+            "related": "/api/v2/leads/05b7eb9b-a58d-4f70-ae57-76f041f82639/payload"
+          },
+          "data": {
+            "type": "voicestar-call-payloads",
+            "id": "649936"
+          }
+        }
+      }
+    },
+    {
+      "type": "leads",
+      "id": "694261",
+      "attributes": {
+        "id": 694261,
+        "uuid": "c6135c05-8682-4e7b-9768-2e53592f8a58",
+        "uid": "http://example.org/api/v2/leads/c6135c05-8682-4e7b-9768-2e53592f8a58",
+        "location-urn": "g5-cl-540ey6qs0-storquest-self-storage",
+        "submitted-at": "2017-07-13T08:19:10.000-07:00",
+        "updated-at": "2017-07-13T08:19:33.974-07:00",
+        "identity": {
+          "name": "Cell Phone NC",
+          "phone": "5554510133",
+          "ga_client_id": null,
+          "client_urn": "g5-c-1t5t8rc1-storquest-self-storage",
+          "location_uid": "http://hub.g5dxm.com/clients/g5-c-1t5t8rc1-storquest-self-storage/locations/g5-cl-540ey6qs0-storquest-self-storage"
+        },
+        "marketing-source-urn": "ms-ecce8f36a9607774"
+      },
+      "links": {
+        "self": "/api/v2/leads/c6135c05-8682-4e7b-9768-2e53592f8a58"
+      },
+      "relationships": {
+        "payload": {
+          "links": {
+            "self": "/api/v2/leads/c6135c05-8682-4e7b-9768-2e53592f8a58/relationships/payload",
+            "related": "/api/v2/leads/c6135c05-8682-4e7b-9768-2e53592f8a58/payload"
+          },
+          "data": {
+            "type": "voicestar-call-payloads",
+            "id": "649935"
+          }
+        }
+      }
+    },
+    {
+      "type": "leads",
+      "id": "694260",
+      "attributes": {
+        "id": 694260,
+        "uuid": "eb1896e7-1809-4ed5-9072-3103230cb4c2",
+        "uid": "http://example.org/api/v2/leads/eb1896e7-1809-4ed5-9072-3103230cb4c2",
+        "location-urn": "g5-cl-53ikgrwyt-storquest-aurora-colfax-9004",
+        "submitted-at": "2017-07-13T08:05:14.000-07:00",
+        "updated-at": "2017-07-13T08:16:07.403-07:00",
+        "identity": {
+          "name": "5552337715",
+          "phone": "5552337715",
+          "ga_client_id": null,
+          "client_urn": "g5-c-1t5t8rc1-storquest-self-storage",
+          "location_uid": "http://hub.g5dxm.com/clients/g5-c-1t5t8rc1-storquest-self-storage/locations/g5-cl-53ikgrwyt-storquest-aurora-colfax-9004"
+        },
+        "marketing-source-urn": "ms-0856b0a0ea3792a1"
+      },
+      "links": {
+        "self": "/api/v2/leads/eb1896e7-1809-4ed5-9072-3103230cb4c2"
+      },
+      "relationships": {
+        "payload": {
+          "links": {
+            "self": "/api/v2/leads/eb1896e7-1809-4ed5-9072-3103230cb4c2/relationships/payload",
+            "related": "/api/v2/leads/eb1896e7-1809-4ed5-9072-3103230cb4c2/payload"
+          },
+          "data": {
+            "type": "voicestar-call-payloads",
+            "id": "649934"
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "current-page": 1,
+    "next-page": 2,
+    "prev-page": null,
+    "total-pages": 115723,
+    "total-count": 347169
+  },
+  "links": {
+    "self": "http://localhost:3000/api/v2/leads?per_page=3\u0026processed_after_in_seconds=1499959216.673973",
+    "next": "http://localhost:3000/api/v2/leads?page=2\u0026per_page=3\u0026processed_after_in_seconds=1499959216.673973"
+  },
+  "included": [
+    {
+      "type": "voicestar-call-payloads",
+      "id": "649936",
+      "attributes": {
+        "id": 649936,
+        "type": "CLSCallPayload",
+        "system": "Voicestar",
+        "category": "answer",
+        "normalized": {
+          "customer": {
+            "name": "Cell Phone CA",
+            "phone": "5558461009",
+            "ga_client_id": null
+          },
+          "call": {
+            "called_number": "4152334486",
+            "duration": 237,
+            "mp3_url": "https://core-call-player.g5search.com/calls/listen/Cs2XHFlnjsIwyVHZ"
+          }
+        }
+      },
+      "links": {
+        "self": "/voicestar-call-payloads/649936"
+      }
+    },
+    {
+      "type": "voicestar-call-payloads",
+      "id": "649935",
+      "attributes": {
+        "id": 649935,
+        "type": "CLSCallPayload",
+        "system": "Voicestar",
+        "category": "answer",
+        "normalized": {
+          "customer": {
+            "name": "Cell Phone NC",
+            "phone": "5554510133",
+            "ga_client_id": null
+          },
+          "call": {
+            "called_number": "4072787702",
+            "duration": 22,
+            "mp3_url": "https://core-call-player.g5search.com/calls/listen/Ch6XGVlnj29O0VNd"
+          }
+        }
+      },
+      "links": {
+        "self": "/voicestar-call-payloads/649935"
+      }
+    },
+    {
+      "type": "voicestar-call-payloads",
+      "id": "649934",
+      "attributes": {
+        "id": 649934,
+        "type": "CLSCallPayload",
+        "system": "Voicestar",
+        "category": "answer",
+        "normalized": {
+          "customer": {
+            "name": "5552337715",
+            "phone": "5552337715",
+            "ga_client_id": null
+          },
+          "call": {
+            "called_number": "5553881033",
+            "duration": 643,
+            "mp3_url": "https://core-call-player.g5search.com/calls/listen/Ch6XIVlnjCpUoVER"
+          }
+        }
+      },
+      "links": {
+        "self": "/voicestar-call-payloads/649934"
+      }
+    }
+  ]
+}

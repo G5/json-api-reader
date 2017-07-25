@@ -21,4 +21,13 @@ describe JsonApiReader::PageResult do
     found = subject.attributes_by_type_and_id('event-trackings', 819)
     expect(found['id']).to eq(819)
   end
+
+  context 'with relationships' do
+    let(:body) { JSON.parse(fixture('cls-api-v2-leads.json')) }
+
+    it 'finds included by type and id' do
+      found = subject.included_by_type_and_id('voicestar-call-payloads', 649936)
+      expect(found['id']).to eq('649936')
+    end
+  end
 end

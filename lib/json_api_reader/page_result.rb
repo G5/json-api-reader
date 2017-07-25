@@ -8,14 +8,18 @@ module JsonApiReader
       @attributes ||= data.collect { |data_att| data_att['attributes'] }
     end
 
-    def data_by_type(the_type)
-      data.select do |data_element|
+    def included_by_type_and_id(the_type, the_id)
+      data_by_type_and_id the_type, the_id, parent: :included
+    end
+
+    def data_by_type(the_type, parent: :data)
+      send(parent).select do |data_element|
         the_type.to_s == data_element['type']
       end
     end
 
-    def data_by_type_and_id(the_type, the_id)
-      data.detect do |data_element|
+    def data_by_type_and_id(the_type, the_id, parent: :data)
+      send(parent).detect do |data_element|
         the_type.to_s == data_element['type'] && the_id.to_s == data_element['id'].to_s
       end
     end
@@ -38,7 +42,7 @@ module JsonApiReader
       links['self']
     end
 
-    [:data, :meta, :links].each do |method|
+    [:data, :meta, :links, :included].each do |method|
       define_method(method) do
         @result_hash[method.to_s]
       end
