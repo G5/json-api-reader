@@ -13,7 +13,12 @@ describe JsonApiReader::PageResult do
   its(:next_url) { is_expected.to eq(body['links']['next']) }
 
   it 'filters attributes by type' do
-    by_type = subject.attributes_by_type('event-trackings'.to_sym)
-    expect(by_type.collect { |typ| typ[:id] }).to eq([])
+    by_type = subject.attributes_by_type('event-trackings')
+    expect(by_type.collect { |typ| typ['id'] }).to eq([820, 819, 659])
+  end
+
+  it 'finds by type and id' do
+    found = subject.attributes_by_type_and_id('event-trackings', 819)
+    expect(found['id']).to eq(819)
   end
 end

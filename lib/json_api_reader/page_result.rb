@@ -8,10 +8,26 @@ module JsonApiReader
       @attributes ||= data.collect { |data_att| data_att['attributes'] }
     end
 
-    def attributes_by_type(the_type)
-      attributes.select do |att|
-        the_type == att['type']
+    def data_by_type(the_type)
+      data.select do |data_element|
+        the_type.to_s == data_element['type']
       end
+    end
+
+    def data_by_type_and_id(the_type, the_id)
+      data.detect do |data_element|
+        the_type.to_s == data_element['type'] && the_id.to_s == data_element['id'].to_s
+      end
+    end
+
+    def attributes_by_type(the_type)
+      data_by_type(the_type).collect do |data_element|
+        data_element['attributes']
+      end
+    end
+
+    def attributes_by_type_and_id(the_type, the_id)
+      data_by_type_and_id(the_type, the_id)['attributes']
     end
 
     def next_url
